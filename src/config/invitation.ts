@@ -18,6 +18,8 @@ export const invitation = {
     displayTime: "11:00 AM",
     venue: "매료테이블",
     venueEnglish: "MAERYO TABLE",
+    venueMessage:
+      "이현이의 첫 생일에 찾아오신 분들이 편안하게 식사하고 여유로운 시간을 보내실 수 있도록, 작지만 아늑하고 예쁜 공간을 준비했습니다.",
     address: "경상남도 창원시 마산합포구 덕동길 31",
     naverMapUrl: "https://naver.me/xs3GX19W",
     coordinates: {

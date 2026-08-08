@@ -32,6 +32,7 @@ export function Location() {
         <p className="eyebrow">LOCATION</p>
         <h2 id="location-title">{invitation.event.venue}</h2>
         <p className="venueEnglish">{invitation.event.venueEnglish}</p>
+        <p className="venueMessage">{invitation.event.venueMessage}</p>
         <address>{invitation.event.address}</address>
         <button type="button" className="underlinedButton" onClick={copyAddress}>주소 복사</button>
       </div>
