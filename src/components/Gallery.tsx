@@ -45,6 +45,7 @@ export function Gallery() {
                     width={1600}
                     height={2000}
                     loading="lazy"
+                    decoding="async"
                     draggable={false}
                   />
                 </button>
@@ -56,12 +57,9 @@ export function Gallery() {
         <div className="galleryMeta">
           <button className="textArrow" type="button" onClick={() => emblaApi?.scrollPrev()} aria-label="이전 사진">←</button>
           <div className="galleryProgress" aria-hidden="true">
-            {invitation.gallery.map((image, index) => (
-              <span
-                className={index === selectedIndex ? "isActive" : ""}
-                key={image}
-              />
-            ))}
+            <span
+              style={{ transform: `scaleX(${(selectedIndex + 1) / invitation.gallery.length})` }}
+            />
           </div>
           <span className="galleryCount" aria-live="polite">
             {String(selectedIndex + 1).padStart(2, "0")} / {String(invitation.gallery.length).padStart(2, "0")}

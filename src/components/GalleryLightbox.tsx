@@ -98,6 +98,15 @@ export function GalleryLightbox({ open, initialIndex, onClose }: GalleryLightbox
                 alt={`${invitation.baby.name}의 소중한 순간 ${index + 1}`}
                 width={1600}
                 height={2000}
+                loading={
+                  Math.min(
+                    Math.abs(index - initialIndex),
+                    invitation.gallery.length - Math.abs(index - initialIndex),
+                  ) <= 1
+                    ? "eager"
+                    : "lazy"
+                }
+                decoding="async"
                 draggable={false}
               />
             </div>
