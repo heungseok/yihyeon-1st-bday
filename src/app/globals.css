@@ -344,14 +344,14 @@ img {
 
 .dateNumber {
   margin: 0;
-  font-size: clamp(62px, 19vw, 86px);
+  font-size: clamp(36px, 11vw, 48px);
   font-weight: 400;
   letter-spacing: -0.06em;
   white-space: nowrap;
 }
 
 .dateYear {
-  margin: -8px 0 0;
+  margin: 0 0 14px;
   color: var(--muted);
   font-size: 12px;
   letter-spacing: 0.42em;

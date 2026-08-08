@@ -13,8 +13,8 @@ export function EventDate() {
         <p className="eyebrow">THE DAY</p>
         <h2 id="date-title" className="srOnly">행사 날짜</h2>
         <div className="editorialDate">
-          <p className="dateNumber">{monthNumber}월 {dayNumber}일</p>
           <p className="dateYear">{year}</p>
+          <p className="dateNumber">{monthNumber}월 {dayNumber}일</p>
         </div>
         <div className="dateDetails">
           <p>{invitation.event.day}</p>
