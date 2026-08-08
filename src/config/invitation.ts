@@ -20,7 +20,10 @@ export const invitation = {
     venueEnglish: "MAERYO TABLE",
     address: "경상남도 창원시 마산합포구 덕동길 31",
     naverMapUrl: "https://naver.me/xs3GX19W",
-    coordinates: null as { latitude: number; longitude: number } | null,
+    coordinates: {
+      latitude: 35.1409511,
+      longitude: 128.5797972,
+    },
   },
 
   hero: {

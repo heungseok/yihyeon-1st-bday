@@ -455,37 +455,69 @@ img {
 .mapCanvas {
   position: absolute;
   inset: 0;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.map-ready .mapCanvas {
+  opacity: 1;
+}
+
+.mapPreview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: saturate(0.56) contrast(0.92) brightness(1.04);
+  transition: opacity 300ms ease;
+}
+
+.map-ready .mapPreview {
+  pointer-events: none;
+  opacity: 0;
 }
 
 .mapFallback {
   position: absolute;
-  inset: 0;
+  top: 15px;
+  left: 15px;
+  z-index: 3;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background:
-    linear-gradient(30deg, transparent 48%, rgba(170, 162, 143, 0.18) 49%, rgba(170, 162, 143, 0.18) 51%, transparent 52%) 0 0 / 46px 46px,
-    linear-gradient(120deg, transparent 48%, rgba(170, 162, 143, 0.13) 49%, rgba(170, 162, 143, 0.13) 51%, transparent 52%) 0 0 / 62px 62px,
-    #eeeae3;
-  color: #5f5b55;
+  gap: 10px;
+  min-width: 146px;
+  padding: 10px 14px;
+  background: rgba(252, 251, 248, 0.92);
+  color: var(--ink);
+  pointer-events: none;
+  backdrop-filter: blur(8px);
 }
 
-.mapFallback p {
-  margin: 14px 0 0;
+.mapFallbackCopy {
+  display: grid;
+  gap: 1px;
+  text-align: left;
+}
+
+.mapFallback strong {
+  font-family: var(--serif);
   font-size: 12px;
+  font-weight: 400;
 }
 
 .mapFallback small {
-  margin-top: 2px;
   color: var(--muted);
-  font-size: 10px;
+  font-size: 9px;
+  letter-spacing: 0.04em;
 }
 
 .mapMarker {
   position: relative;
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
   border: 1px solid var(--ink);
   border-radius: 50% 50% 50% 0;
   transform: rotate(-45deg);
@@ -493,10 +525,10 @@ img {
 
 .mapMarker::after {
   position: absolute;
-  top: 4px;
-  left: 4px;
-  width: 6px;
-  height: 6px;
+  top: 3px;
+  left: 3px;
+  width: 5px;
+  height: 5px;
   border: 1px solid var(--ink);
   border-radius: 50%;
   content: "";
