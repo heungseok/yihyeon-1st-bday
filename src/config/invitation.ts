@@ -129,7 +129,7 @@ export const invitation = {
   share: {
     title: "이현이의 첫 번째 생일에 초대합니다",
     description: "2026. 09. 25 FRI 11:00 · 매료테이블",
-    image: "/images/share.webp",
+    image: "/images/share.webp?v=20260809",
   },
 } as const;
 
