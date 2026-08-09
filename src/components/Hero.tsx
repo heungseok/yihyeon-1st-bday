@@ -1,15 +1,23 @@
 import { invitation } from "@/config/invitation";
 import { assetPath } from "@/lib/paths";
 
-export function Hero() {
+type HeroProps = {
+  image?: string;
+  imagePosition?: string;
+};
+
+export function Hero({
+  image = invitation.hero.image,
+  imagePosition = invitation.hero.imagePosition,
+}: HeroProps = {}) {
   return (
     <header className="hero" aria-labelledby="hero-title">
       <div className="heroMedia">
         <img
-          src={assetPath(invitation.hero.image)}
+          src={assetPath(image)}
           alt={`${invitation.baby.name}의 첫돌 초대 사진`}
           className="heroImage"
-          style={{ objectPosition: invitation.hero.imagePosition }}
+          style={{ objectPosition: imagePosition }}
           width={1600}
           height={2200}
           fetchPriority="high"
