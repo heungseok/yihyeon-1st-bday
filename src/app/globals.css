@@ -132,7 +132,6 @@ img {
 
 .heroMedia {
   position: relative;
-  height: 76svh;
   min-height: 580px;
   max-height: 760px;
   overflow: hidden;
@@ -140,6 +139,7 @@ img {
 }
 
 .heroImage {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
