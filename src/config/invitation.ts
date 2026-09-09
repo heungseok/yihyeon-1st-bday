@@ -175,8 +175,8 @@ export const seoulInvitation: Invitation = {
     naverMapUrl: "https://naver.me/xpBiSO4F",
     kakaoMapUrl: "https://kko.to/tpOXU1AKh3",
     coordinates: {
-      latitude: 37.5857348,
-      longitude: 126.9184791,
+      latitude: 37.5809774,
+      longitude: 126.9254635,
     },
   },
   share: {
