@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { invitation } from "@/config/invitation";
+import { invitation, type Invitation } from "@/config/invitation";
 import { useKakao } from "@/hooks/useKakao";
 import { copyText, getAbsoluteAssetUrl, getCurrentUrl, shareWithWebApi } from "@/lib/share";
 import { Toast } from "@/components/Toast";
 
-export function Share() {
+export function Share({ data = invitation }: { data?: Invitation }) {
   const { ready } = useKakao();
   const [toast, setToast] = useState("");
 
@@ -23,9 +23,9 @@ export function Share() {
         window.Kakao.Share.sendDefault({
           objectType: "feed",
           content: {
-            title: invitation.share.title,
-            description: `2026. 09. 25 FRI\n11:00 AM\n\n${invitation.event.venue}`,
-            imageUrl: getAbsoluteAssetUrl(invitation.share.image),
+            title: data.share.title,
+            description: `${data.event.displayDate} ${data.event.day}\n${data.event.displayTime}\n\n${data.event.venue}`,
+            imageUrl: getAbsoluteAssetUrl(data.share.image),
             link: { mobileWebUrl: url, webUrl: url },
           },
           buttons: [
@@ -39,7 +39,7 @@ export function Share() {
     }
 
     try {
-      const result = await shareWithWebApi(invitation);
+      const result = await shareWithWebApi(data);
       if (result === "copied") setToast("초대장 링크가 복사되었습니다.");
     } catch (error) {
       if (error instanceof DOMException && error.name === "AbortError") return;
