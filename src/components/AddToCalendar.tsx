@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { invitation } from "@/config/invitation";
+import { invitation, type Invitation } from "@/config/invitation";
 import { createGoogleCalendarUrl, downloadIcs } from "@/lib/calendar";
 
-export function AddToCalendar() {
+export function AddToCalendar({ data = invitation }: { data?: Invitation }) {
   const [open, setOpen] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
 
@@ -30,7 +30,7 @@ export function AddToCalendar() {
             <p className="eyebrow" id="calendar-title">ADD TO CALENDAR</p>
             <a
               className="sheetAction"
-              href={createGoogleCalendarUrl(invitation)}
+              href={createGoogleCalendarUrl(data)}
               target="_blank"
               rel="noreferrer"
               onClick={() => setOpen(false)}
@@ -41,7 +41,7 @@ export function AddToCalendar() {
               className="sheetAction"
               type="button"
               onClick={() => {
-                downloadIcs(invitation);
+                downloadIcs(data);
                 setOpen(false);
               }}
             >

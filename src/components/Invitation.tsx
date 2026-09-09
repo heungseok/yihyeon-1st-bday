@@ -7,25 +7,27 @@ import { InvitationMessage } from "@/components/InvitationMessage";
 import { Location } from "@/components/Location";
 import { Reveal } from "@/components/Reveal";
 import { Share } from "@/components/Share";
+import { invitation, type Invitation as InvitationData } from "@/config/invitation";
 
 type InvitationProps = {
+  data?: InvitationData;
   heroImage?: string;
   heroImagePosition?: string;
 };
 
-export function Invitation({ heroImage, heroImagePosition }: InvitationProps = {}) {
+export function Invitation({ data = invitation, heroImage, heroImagePosition }: InvitationProps = {}) {
   return (
     <>
       <InitialLoader />
       <Reveal />
       <main className="invitationShell">
-        <Hero image={heroImage} imagePosition={heroImagePosition} />
+        <Hero data={data} image={heroImage} imagePosition={heroImagePosition} />
         <InvitationMessage />
         <Gallery />
-        <EventDate />
-        <Location />
-        <Share />
-        <Footer />
+        <EventDate data={data} />
+        <Location data={data} />
+        <Share data={data} />
+        <Footer data={data} />
       </main>
     </>
   );

@@ -11,11 +11,11 @@ export const invitation = {
 
   event: {
     date: "2026-09-25",
-    time: "11:00",
-    dateTime: "2026-09-25T11:00:00+09:00",
+    time: "12:00",
+    dateTime: "2026-09-25T12:00:00+09:00",
     displayDate: "2026. 09. 25",
     day: "FRIDAY",
-    displayTime: "11:00 AM",
+    displayTime: "12:00 PM",
     venue: "매료테이블",
     venueEnglish: "MAERYO TABLE",
     venueMessage:
@@ -128,9 +128,59 @@ export const invitation = {
 
   share: {
     title: "이현이의 첫 번째 생일에 초대합니다",
-    description: "2026. 09. 25 FRI 11:00 · 매료테이블",
+    description: "2026. 09. 25 FRI 12:00 · 매료테이블",
     image: "/images/share.webp?v=20260809",
   },
 } as const;
 
-export type Invitation = typeof invitation;
+export type Invitation = Omit<typeof invitation, "event" | "share"> & {
+  event: {
+    date: string;
+    time: string;
+    dateTime: string;
+    displayDate: string;
+    day: string;
+    displayTime: string;
+    venue: string;
+    venueEnglish: string;
+    venueMessage: string;
+    address: string;
+    naverMapUrl: string;
+    kakaoMapUrl?: string;
+    coordinates?: {
+      latitude: number;
+      longitude: number;
+    };
+  };
+  share: {
+    title: string;
+    description: string;
+    image: string;
+  };
+};
+
+export const seoulInvitation: Invitation = {
+  ...invitation,
+  event: {
+    ...invitation.event,
+    date: "2026-09-19",
+    time: "17:30",
+    dateTime: "2026-09-19T17:30:00+09:00",
+    displayDate: "2026. 09. 19",
+    day: "SATURDAY",
+    displayTime: "5:30 PM",
+    venue: "풀셋",
+    venueEnglish: "FULLSET",
+    address: "서울 서대문구 거북골로 12-15 2층",
+    naverMapUrl: "https://naver.me/xpBiSO4F",
+    kakaoMapUrl: "https://kko.to/tpOXU1AKh3",
+    coordinates: {
+      latitude: 37.5857348,
+      longitude: 126.9184791,
+    },
+  },
+  share: {
+    ...invitation.share,
+    description: "2026. 09. 19 SAT 5:30 PM · 풀셋",
+  },
+};

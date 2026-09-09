@@ -1,9 +1,9 @@
-import { invitation } from "@/config/invitation";
+import { invitation, type Invitation } from "@/config/invitation";
 import { AddToCalendar } from "@/components/AddToCalendar";
 import { DDay } from "@/components/DDay";
 
-export function EventDate() {
-  const [year, month, day] = invitation.event.date.split("-");
+export function EventDate({ data = invitation }: { data?: Invitation }) {
+  const [year, month, day] = data.event.date.split("-");
   const monthNumber = Number(month);
   const dayNumber = Number(day);
 
@@ -17,12 +17,12 @@ export function EventDate() {
           <p className="dateNumber">{monthNumber}월 {dayNumber}일</p>
         </div>
         <div className="dateDetails">
-          <p>{invitation.event.day}</p>
+          <p>{data.event.day}</p>
           <span aria-hidden="true" />
-          <p>{invitation.event.displayTime}</p>
+          <p>{data.event.displayTime}</p>
         </div>
-        <DDay />
-        <AddToCalendar />
+        <DDay data={data} />
+        <AddToCalendar data={data} />
       </div>
     </section>
   );
